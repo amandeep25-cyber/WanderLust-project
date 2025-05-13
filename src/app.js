@@ -11,10 +11,11 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
 
-app.get("/",(req,res)=>{
-    console.log(__dirname);
-    res.send("get route");
-})
+//importing routes
+const listingRoutes = require("./routes/listing.routes")
+
+// using routes
+app.use('/listing',listingRoutes);
 
 
 module.exports = app;
