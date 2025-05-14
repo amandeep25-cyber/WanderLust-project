@@ -48,6 +48,12 @@ const updateListing = async (req, res) => {
   res.redirect(`/listing/${id}`);
 };
 
+const deleteListing = async(req,res)=>{
+  const { id } = req.params ;
+  await Listing.findByIdAndDelete(id);
+  res.redirect("/listing");
+}
+
 module.exports = {
   getAllListing,
   getListing,
@@ -55,4 +61,5 @@ module.exports = {
   creatingListing,
   getUpdateForm,
   updateListing,
+  deleteListing,
 };

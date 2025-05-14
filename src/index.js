@@ -11,7 +11,7 @@ dotenv.config({
 connectDB().then(()=>{
     console.log("DB connected successfully");
     app.listen(port,()=>{
-     console.log(`App is listening on http://localhost:${port}`);
+     console.log(`App is listening on http://localhost:${port}/listing`);
     })
 }).catch((err)=>{
     console.log(err);
