@@ -6,11 +6,15 @@ const {
   getListing,
   createForm,
   creatingListing,
+  getUpdateForm,
+  updateListing,
 } = require("../controllers/listing.controllers");
 
 router.route("/").get(getAllListing);
 router.route("/new").get(createForm);
 router.route("/:id").get(getListing);
+router.route('/:id/edit').get(getUpdateForm);
 router.route("/").post(creatingListing);
+router.route('/:id').put(updateListing);
 
 module.exports = router;

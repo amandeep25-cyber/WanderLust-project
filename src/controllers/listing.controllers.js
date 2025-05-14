@@ -17,18 +17,35 @@ const createForm = (req, res) => {
 };
 
 const creatingListing = async (req, res) => {
-  const { title, location, country, description, price } = req.body;
+  const { title, location, image, country, description, price } = req.body;
   const newListing = new Listing({
     title,
+    image,
     description,
     price,
     country,
     location,
   });
 
-  const createdListing = await newListing.save();
+  await newListing.save();
 
   res.redirect("/listing");
+};
+
+const getUpdateForm = async (req, res) => {
+  const { id } = req.params;
+  const list = await Listing.findById(id);
+  res.render("listing/update.ejs", { list });
+};
+
+const updateListing = async (req, res) => {
+  const { id } = req.params;
+  const updatingList = req.body;
+  await Listing.findByIdAndUpdate(id, updatingList, {
+    runValidators: true,
+  });
+
+  res.redirect(`/listing/${id}`);
 };
 
 module.exports = {
@@ -36,4 +53,6 @@ module.exports = {
   getListing,
   createForm,
   creatingListing,
+  getUpdateForm,
+  updateListing,
 };

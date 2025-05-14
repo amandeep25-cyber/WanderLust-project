@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon -r dotenv/config src/index.js"
+    "dev": "nodemon -r dotenv/config src/index.js"
   },
   "author": "Amandeep prajapati",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "method-override": "^3.0.0",
     "mongoose": "^8.14.2"
   },
   "devDependencies": {
