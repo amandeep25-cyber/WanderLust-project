@@ -1,0 +1,63 @@
+
+<style>
+ 
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  nav.simple-navbar {
+    background-color: #333;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+  }
+
+  .simple-navbar .logo {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .simple-navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .simple-navbar .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .simple-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .simple-navbar .nav-links {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .simple-navbar .nav-links a {
+      margin: 0.5rem 0;
+    }
+  }
+</style>
+
+<nav class="simple-navbar">
+  <a class="logo" href="/">WanderLust</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/listing">All Listing</a>
+    <a href="/listing/new">Create New</a>
+  </div>
+</nav>

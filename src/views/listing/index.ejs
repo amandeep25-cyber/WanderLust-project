@@ -1,14 +1,48 @@
 <% layout('/listing/layouts') %>
+<style>
+    .cards img{
+        width: 15rem;
+        height: 13rem;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
 
-    <h1>All Listing!</h1>
-    <br>
-    <br>
-    <form method="get" action="/listing/new">
-        <button>Create new</button>
-    </form>
-    <ul>
+    .cards img:hover{
+        box-shadow: 0 0 1rem black;
+        transition: all 0.1s ease-in 0s;
+    }
+
+    .all-cards{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2rem 5rem 1rem 5rem;
+        gap: 2rem;
+        
+    }
+
+    .cards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    a{
+        text-decoration: none;
+        outline: none;
+    }
+
+    p{
+        padding-left: 0.2rem;
+        color: black;
+    }
+</style>
+    <div class="all-cards">
     <% for(let list of allData){ %>
-                <li><a href="/listing/<%= list._id%>"><%= list.title %></a></li>
+              <a href="/listing/<%=list._id%>"> <div class="cards">
+                    <img src=<%= list.image %> alt="Image">
+                    <b><p>  <%= list.title %></p></b>
+                    <p>   &#x20b9; <%= list.price.toLocaleString('en-IN') %> / night</p>
+                </div>
+              </a>
     <% } %>
-    </ul>
+   </div>
 
