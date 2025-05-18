@@ -1,15 +1,87 @@
 <% layout('/listing/layouts') %>
-    <h1><%= list.title%></h1>
-    <ul>
-        <li><%= list.description%></li>
-        <li> &#x20b9; <%= list.price.toLocaleString("en-IN") %></li>
-        <li><%= list.location%></li>
-        <li><%= list.country%></li>
-    </ul>
-    <br>
-    <a href="/listing/<%= list._id%>/edit">Update details</a>
-    <br>
-    <br>
-    <form method="post" action="/listing/<%= list._id %>?_method=DELETE">
-        <button>Delete Listing</button>
-    </form>
+
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .main-container{
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding:0 2rem;
+    }
+
+    .detail-section{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+
+    }
+
+    img{
+        width: 90%;
+        height: 23rem;
+        border-radius: 1rem;
+    }
+
+    .btn-section{
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+
+    }
+
+    .btn-section a{
+        width: 5rem;
+        height: 2rem;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 0.3rem 0 0 0;
+        border-radius: 0.3rem;
+        background-color: red;
+    }
+
+    .btn-section button{
+        width: 5rem;
+        height: 2rem;
+        color: white;
+        border-radius: 0.3rem;
+        background-color: black;
+        border: none;
+
+    }
+    
+</style>
+
+    <div class="main-container">
+
+        <h1>Listing Details</h1>
+        <div class="detail-section">
+            <div class="main-details">
+                <img src=<%= list.image%> alt="Image">
+                <div><b><%= list.title%></b></div>
+                <p><%= list.description%></p>
+                <p> &#x20b9; <%= list.price.toLocaleString("en-IN") %></p>
+                <p><%= list.location%></p>
+                <p><%= list.country%></p>
+            </div>
+            <div class="btn-section">
+                <a href="/listing/<%= list._id%>/edit">Update</a>
+                <form method="post" action="/listing/<%= list._id %>?_method=DELETE">
+
+                    <button>Delete</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+ 
