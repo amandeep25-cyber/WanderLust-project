@@ -39,7 +39,7 @@ const getUpdateForm = asyncHandler(async (req, res) => {
   res.render("listing/update.ejs", { list });
 });
 
-const updateListing =asyncHandler( async (req, res) => {
+const updateListing = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const updatingList = req.body;
   await Listing.findByIdAndUpdate(id, updatingList, {
